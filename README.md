@@ -3,5 +3,6 @@
 但是制作补丁的方式却是使用的另外一种方法。这种方法也可以避免出现java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation
 ，所以也就无需使用javassist动态注入。
 项目可以直接运行。
+![](http://img.blog.csdn.net/20151208111444234)
 
 补丁的制作方法请参考:http://blog.csdn.net/aerfahaidao/article/details/50217521

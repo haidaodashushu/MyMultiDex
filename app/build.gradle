@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+/*task('processWithJavassist') << {
+    String classPath = file('build/intermediates/classes/debug')//项目编译class所在目录
+    dodola.patch.PatchClass.process(classPath, project(':hackdex').buildDir
+            .absolutePath + '/intermediates/classes/debug')//第二个参数是hackdex的class所在目录
+}*/
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "wzk.com.mymultidex"
+        minSdkVersion 10
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*applicationVariants.all { variant ->
+        variant.dex.dependsOn << processWithJavassist //在执行dx命令之前将代码打入到class中
+    }*/
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:multidex:1.0.1'
+
+}
